@@ -7,8 +7,11 @@
       * Mac: Open Terminal, type ipconfig getifaddr en0, and copy the resulting IP address.
    3. Configure Your Frontend Environment Variables: In your frontend React Native repository, create an .env file (or whatever config file your app uses) and point your API base URLs to your computer's local IP address:
    
-   BACKEND_URL=http://192.168.1.50:8000  # Replace with your actual local IP and backend port
-   AI_SERVICE_URL=http://192.168.1.50:8001 # Replace with your actual local IP and AI service port
+   EXPO_PUBLIC_BACKEND_URL=http://192.168.1.50:8000  # Replace with your actual local IP and backend port
+   EXPO_PUBLIC_API_URL=http://192.168.1.50:8000      # Alias for backend URL
+   EXPO_PUBLIC_AI_SERVICE_URL=http://192.168.1.50:8001 # Replace with your actual local IP and AI service port
+   BACKEND_URL=http://192.168.1.50:8000  # Backward compatibility fallback
+   AI_SERVICE_URL=http://192.168.1.50:8001
    
    
 ------------------------------
@@ -36,7 +39,8 @@ Windows developers will spin up all three services locally and stream the fronte
 
 💡 Windows Firewall Quick-Fix: If your phone opens the app but cannot connect to your backend or AI service, Windows Firewall is likely blocking incoming local traffic. To bypass this quickly without messing with firewall settings, run your frontend using a secure cloud tunnel:
 
-npx expo start --tunnel
+npm run start:tunnel
+# or npx expo start --tunnel
 
 ------------------------------
 ## 🍎 Step-by-Step for Mac Developers
