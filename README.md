@@ -69,3 +69,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 
 - [Issue #44: household inventory updates](inventory-44.md) — editing, consumption, discard, filters, and batch operations.
 - [Backend OpenAPI snapshot](openapi.json) — generated API reference.
+
+## Shopping list API
+
+- [Shared shopping list API (#71)](shopping-list-71.md) — household CRUD, check/uncheck, and clearing purchased items.
