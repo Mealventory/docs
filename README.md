@@ -64,3 +64,8 @@ Maintains the mathematical and test-backed proof that tenant isolation cannot be
 
 ### C. Technical Decision Records (TDRs)
 Living records establishing why key decisions were made (e.g., choosing `react-native-mmkv` over SQLite for synchronous sub-millisecond cache access, and adopting Google Gemini 1.5 Flash structured outputs over fragile regex-parsed OCR engines).
+
+## Current inventory API documentation
+
+- [Issue #44: household inventory updates](inventory-44.md) — editing, consumption, discard, filters, and batch operations.
+- [Backend OpenAPI snapshot](openapi.json) — generated API reference.
