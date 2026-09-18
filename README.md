@@ -85,3 +85,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Browser access configuration
 
 - [CORS origins (#74)](cors-origins-74.md) — Expo web, tunnels, and production origin lists.
+
+## Demo data
+
+- [Local demo database seeding (#60)](demo-seeder-60.md).
