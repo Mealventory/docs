@@ -77,3 +77,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Backend container runtime
 
 - [Docker setup and health probes (#48)](backend-docker-48.md) — build, runtime configuration, and troubleshooting.
+
+## AI scan reliability
+
+- [AI timeout and recovery behavior (#47)](ai-resilience-47.md).
