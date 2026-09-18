@@ -81,3 +81,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## AI scan reliability
 
 - [AI timeout and recovery behavior (#47)](ai-resilience-47.md).
+
+## Browser access configuration
+
+- [CORS origins (#74)](cors-origins-74.md) — Expo web, tunnels, and production origin lists.
