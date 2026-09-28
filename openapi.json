@@ -3960,7 +3960,7 @@
           "Household inventory"
         ],
         "summary": "Update Item",
-        "description": "Edit active items. Explicit null clears expiry date or storage location.",
+        "description": "Edit active items atomically, including labels, zone and status. Null clears expiry or location.",
         "operationId": "update_item_api_v1_items__item_id__patch",
         "security": [
           {
@@ -6316,6 +6316,23 @@
               }
             ],
             "title": "Storage Location Id"
+          },
+          "storage_zone": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "pantry",
+                  "fridge",
+                  "freezer",
+                  "spicerack"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Storage Zone"
           }
         },
         "type": "object",
@@ -6333,6 +6350,65 @@
       },
       "ItemUpdate": {
         "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "category": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Category"
+          },
+          "storage_zone": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "pantry",
+                  "fridge",
+                  "freezer",
+                  "spicerack"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Storage Zone"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "consumed",
+                  "discarded"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          },
           "quantity": {
             "anyOf": [
               {
