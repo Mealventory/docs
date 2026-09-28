@@ -93,8 +93,11 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Inventory item editing
 
 - [Complete partial item updates (#70)](item-edit-70.md).
-<<<<<<< Updated upstream
-=======
+## Inventory item editing
+
+- [Complete partial item updates (#70)](item-edit-70.md).
+
+## Storage zones
 
 ## Storage zones
 
@@ -103,8 +106,11 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Inventory status
 
 - [Consumed/discarded actions and history (#72)](item-status-72.md).
+<<<<<<< HEAD
 
 ## Launching the app
 
 - [Starting Mealventory — Mac and Windows](starting-the-project.md).
 >>>>>>> Stashed changes
+=======
+>>>>>>> cfda37292d7f180e9825f7099fc3676d63521c18
