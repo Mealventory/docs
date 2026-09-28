@@ -16,7 +16,7 @@ Every request requires `Authorization: Bearer <Supabase access token>` and `X-Ho
 
 Example body: `{"quantity":2.5,"unit":"kg","expiry_date":"2026-10-01"}`.
 
-Supported fields: `quantity`, `unit`, `expiry_date`, `storage_location_id`. Omitted fields are preserved. Explicit null clears the expiration date or storage location. Quantity must be positive with at most three decimal places; quantity and unit cannot be null. Empty patches and unknown fields return 422. Storage locations must belong to the same household. Edits do not alter the shared food catalogue name/category.
+Original #44 fields: `quantity`, `unit`, `expiry_date`, `storage_location_id`. See [#70](item-edit-70.md) for the extended contract. Omitted fields are preserved. Explicit null clears the expiration date or storage location. Quantity must be positive with at most three decimal places; quantity and unit cannot be null. Empty patches and unknown fields return 422. Storage locations must belong to the same household. The original #44 implementation did not edit name/category; [#70](item-edit-70.md) adds isolated label corrections, zone and status updates.
 
 ## Status and history
 

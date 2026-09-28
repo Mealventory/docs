@@ -89,3 +89,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Demo data
 
 - [Local demo database seeding (#60)](demo-seeder-60.md).
+
+## Inventory item editing
+
+- [Complete partial item updates (#70)](item-edit-70.md).
