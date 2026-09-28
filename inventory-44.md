@@ -44,3 +44,5 @@ RUN_POSTGRES_TESTS=1 python -m pytest tests/test_household_inventory_postgres.py
 ```
 
 PostgreSQL tests use disposable Docker containers, never the configured application database.
+
+Status transition behavior has been updated by [#72](item-status-72.md): consume/discard POST requests against non-active items now return 400, including repeated identical actions.

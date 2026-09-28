@@ -42,3 +42,5 @@ RUN_POSTGRES_TESTS=1 python -m pytest tests/test_household_inventory_postgres.py
 PowerShell: set `$env:RUN_POSTGRES_TESTS='1'` before the second pytest command. PostgreSQL tests require Docker and use a disposable database, never the application's configured database.
 
 For manual Swagger verification, create an item, copy its UUID, and PATCH only `{"expiry_date":"2026-10-10"}`. Confirm name, quantity and location remain unchanged. Then edit its name and storage zone, and GET with `?zone=fridge`. Confirm another household cannot edit the same UUID. Finish by setting `status` to `consumed` and confirming it no longer appears in the default active list.
+
+Storage creation defaults and invalid-zone HTTP 400 behavior are now covered by [#73](storage-zones-73.md).
