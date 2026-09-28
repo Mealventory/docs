@@ -3379,38 +3379,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -3583,38 +3552,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -3800,38 +3738,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -4017,38 +3924,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -4215,38 +4091,7 @@
             "description": "Successful Response"
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -4375,7 +4220,7 @@
           "Household inventory"
         ],
         "summary": "Consume Item",
-        "description": "Mark consumed without deleting history; repeating the same action is safe.",
+        "description": "Mark an active item consumed without deleting history. Non-active items return 400.",
         "operationId": "consume_item_api_v1_items__item_id__consume_post",
         "security": [
           {
@@ -4422,38 +4267,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -4582,7 +4396,7 @@
           "Household inventory"
         ],
         "summary": "Discard Item",
-        "description": "Mark discarded without deleting history; conflicting final states return 409.",
+        "description": "Mark an active item discarded without deleting history. Non-active items return 400.",
         "operationId": "discard_item_api_v1_items__item_id__discard_post",
         "security": [
           {
@@ -4629,38 +4443,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "type",
-                    "title",
-                    "status",
-                    "detail",
-                    "instance"
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "integer"
-                    },
-                    "detail": {
-                      "type": "string"
-                    },
-                    "instance": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Invalid storage zone, household header, or item is not active"
           },
           "401": {
             "description": "Unauthorized",
@@ -6239,6 +6022,17 @@
               }
             ],
             "title": "Storage Location Id"
+          },
+          "storage_zone": {
+            "type": "string",
+            "enum": [
+              "pantry",
+              "fridge",
+              "freezer",
+              "spicerack"
+            ],
+            "title": "Storage Zone",
+            "default": "pantry"
           }
         },
         "additionalProperties": false,
