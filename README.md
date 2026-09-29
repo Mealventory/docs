@@ -118,3 +118,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 ## Scan review
 
 - [Scan review data integrity and issue description](scan-review-integrity.md).
+
+## Visual consistency
+
+- [Frontend visual polish and acceptance criteria](visual-polish.md).
