@@ -114,3 +114,7 @@ Living records establishing why key decisions were made (e.g., choosing `react-n
 >>>>>>> Stashed changes
 =======
 >>>>>>> cfda37292d7f180e9825f7099fc3676d63521c18
+
+## Scan review
+
+- [Scan review data integrity and issue description](scan-review-integrity.md).
