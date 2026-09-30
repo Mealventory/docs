@@ -15,7 +15,7 @@ These are guide-based estimates, not measured spoilage dates. An earlier package
 
 ## Catalogue and matching
 
-Backend `app/data/shelf_life_catalogue.json` is a versioned, source-linked snapshot with a review date. It currently covers 33 food groups and 45 condition/location entries, including milk, yogurt, cottage cheese, selected meat and eggs, common vegetables, berries, citrus, avocado, bread and ginger. It is deliberately not a complete food database.
+Backend `app/data/shelf_life_catalogue.json` is a versioned, source-linked snapshot with a review date. It currently covers 33 food groups and 46 condition/location entries, including milk, yogurt, cottage cheese, selected meat and eggs, common vegetables, berries, citrus, avocado, bread and ginger. It is deliberately not a complete food database.
 
 Names are matched against curated aliases after Unicode, case and whitespace normalization. There is no fuzzy/substring matching: almond milk does not become dairy milk and strawberry jam does not become fresh berries. Unlisted brands, compound names, cut/canned/dried foods and unsupported conditions require manual entry or further catalogue work. Users must choose the matching food condition; the app does not assume raw versus cooked or opened versus unopened. Use simple names only when they accurately describe the food.
 
@@ -47,3 +47,7 @@ Catalogue matches take precedence over manual/model baselines. Catalogue estimat
 ## Validation
 
 Automated tests cover aliases, per-condition and per-location durations, missing conditions, unknown/composite foods, label-only guidance, preserving past dates, tenant authorization, explicit application, source labels and stale-response cancellation. Tests use isolated databases and mocked AI calls. Phone layout and a live save across two phones still require the manual checks above.
+
+## Whole citrus at room temperature
+
+Mandarins, clementines, tangerines and the other curated citrus aliases now support Pantry as well as Fridge. Choose Whole / uncut and use the actual purchase date: Pantry suggests seven days, while the existing Fridge guidance remains fourteen days. The pantry value is a quality estimate for fresh, unpeeled fruit, not a universal fruit expiry rule. Peeled or prepared fruit is not covered by this entry. Check daily and discard moldy fruit. Source: [University of Illinois Extension, winter citrus](https://extension.illinois.edu/blogs/live-well-eat-well/2024-01-24-eat-all-varieties-winter-citrus). Restart the backend after catalogue changes because the data is cached in each process.
