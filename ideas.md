@@ -1,6 +1,6 @@
-[] Attach email so that you scan it for email reciepts from stores (eg. Voila). Automatically add items to kitchen through the reciept. 
-[] Flower low... instead of freshness do % of flower left. 2kg bought 4 months ago, when less than 10% send a notif.
-[] Remember to remove items from pantry when used in recipe
-[] Recipe ahead of time, So that if you are missing ingredients from recipe it will warn so they can stop on their way home. Ties into the idea below.
-[] Be able to add frequently shopped stores. Attach website link.
-[] WAY FUTURE IDEA: add scraping for sales at nearby stores
+[ ] Attach email so that you scan it for email reciepts from stores (eg. Voila). Automatically add items to kitchen through the reciept. 
+[ ] Flower low... instead of freshness do % of flower left. 2kg bought 4 months ago, when less than 10% send a notif.
+[ ] Remember to remove items from pantry when used in recipe
+[ ] Recipe ahead of time, So that if you are missing ingredients from recipe it will warn so they can stop on their way home. Ties into the idea below.
+[ ] Be able to add frequently shopped stores. Attach website link.
+[ ] WAY FUTURE IDEA: add scraping for sales at nearby stores
