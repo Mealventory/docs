@@ -1,6 +1,6 @@
 # Live household flow
 
-The app's home route uses real Supabase email/password authentication and the backend household API. Create/join actions wait for the backend response before showing success. The member list comes from the database; because the backend returns UUIDs rather than names, other members currently show a short ID. The pantry now loads, adds, and deletes shared database inventory; see [shared inventory setup and testing](shared-inventory.md). Scanning and recipe designs remain prototypes.
+The app's home route uses real Supabase email/password authentication and the backend household API. Create/join actions wait for the backend response before showing success. The member list comes from the database; because the backend returns UUIDs rather than names, other members currently show a short ID. The pantry now loads, adds, and deletes shared database inventory; see [shared inventory setup and testing](../features/shared-inventory.md). See the [scanner guide](../features/scanner-recognition.md) and [recipe guide](../features/household-recipes.md) for the live flows.
 
 ## Run
 
@@ -10,7 +10,7 @@ Create a git-ignored `.env.local` using `.env.example`. Set:
 
 - `EXPO_PUBLIC_SUPABASE_URL`: your Supabase project URL.
 - `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`: publishable key (legacy anon key is also supported through EXPO_PUBLIC_SUPABASE_ANON_KEY).
-- `EXPO_PUBLIC_BACKEND_URL`: the current shared backend tunnel URL. The supplied address is `https://reverse-singh-biggest-mid.trycloudflare.com`; confirm that the backend host is still running this tunnel before using it. Alternatively, use your own backend tunnel, `http://<computer-LAN-IP>:8000` on the same Wi-Fi, or `http://127.0.0.1:8000` for a browser on the backend computer.
+- `EXPO_PUBLIC_BACKEND_URL`: the current shared backend tunnel URL. Use the URL printed by the currently running Cloudflare tunnel. Alternatively, use your own backend tunnel, `http://<computer-LAN-IP>:8000` on the same Wi-Fi, or `http://127.0.0.1:8000` for a browser on the backend computer.
 
 ### Shared tunnel versus individual tunnels
 
@@ -30,6 +30,6 @@ Run backend branches containing #42 and #43. Its Supabase URL/signing configurat
 
 Sign in with a Supabase user, or create an account. If email confirmation is enabled, confirm in email and then sign in here. Create a household, check its invite code and owner membership, then sign out and use a second account to join with the code. Refresh the first account's member list to see the new member. Try an invalid code to check the error state.
 
-Sessions are persisted securely across app restarts using Expo SecureStore on iOS/Android and localStorage on web (#56), with automatic token refresh while the app is active. Account recovery is supported, and the app coordinates native splash screen hiding with auth hydration to avoid screen flicker. API member removal/role changes from #43 are not exposed in this UI yet.
+Sessions are persisted securely across app restarts using Expo SecureStore on iOS/Android and localStorage on web (#56), with automatic token refresh while the app is active. Account recovery is supported, and the app coordinates native splash screen hiding with auth hydration to avoid screen flicker. See the household management screen for the actions available to your role.
 
 `npm run typecheck` checks TypeScript. `npm test` verifies the API request/error behavior without real credentials or network calls. `npm run web` opens the browser version. To inspect the earlier sample-data design use `/prototype`; it is separate from the live household flow.

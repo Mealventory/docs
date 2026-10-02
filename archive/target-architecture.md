@@ -1,3 +1,5 @@
+> Historical planning or implementation notes. These are not current setup instructions or an active task list. See the [documentation index](../README.md) and GitHub issues for current work.
+
 > Future design, not the current API contract. See ../README.md.
 
 # Mealventory Core Backend: Target Final State & Purpose

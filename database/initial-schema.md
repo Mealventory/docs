@@ -14,12 +14,7 @@ connection. Supply credentials through your normal secure PostgreSQL mechanism.
 psql -X --set ON_ERROR_STOP=1 --dbname "$EMPTY_DEV_DATABASE_URL" --file scripts/init_db.sql
 ```
 
-Do not run this on the current Mealventory database: existing `foods` and
-`inventory_items` have incompatible integer IDs and per-user ownership. This is
-an initial schema, not an in-place data migration. No existing data was migrated.
-The current SQLAlchemy models and API still require the older schema. Application
-model migration, existing-data conversion, JWT integration and rollout need
-separate coordinated work before the backend can use this schema.
+Do not run this clean-database initializer on an existing shared database. It is not an in-place migration. Run commands from the backend repository. The household APIs now use UUID household tables; legacy per-user routes may still require their older schema. Apply reviewed additive scripts for later features separately, rather than rerunning initialization.
 
 ## Design decisions
 

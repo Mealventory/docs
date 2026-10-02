@@ -13,7 +13,7 @@ docker run --rm --name mealventory-backend --env-file .env -p 127.0.0.1:8000:800
 
 These commands work in macOS Terminal and Windows PowerShell. Stop the locally running backend first if it already occupies port 8000. Keep AI services running separately. Supply actual runtime environment values via the ignored `.env` file or your deployment secret manager; never bake credentials into the image.
 
-`DATABASE_URL` must reach your existing PostgreSQL/Supabase database. `AI_SERVICE_URL` must be reachable from inside the container: on Docker Desktop, use `http://host.docker.internal:8001` for AI services on the host computer, or the AI container's service name on a shared Docker network. `localhost` inside the backend container refers to that container. Configure Supabase authentication as described in [supabase-auth.md](supabase-auth.md).
+`DATABASE_URL` must reach your existing PostgreSQL/Supabase database. `AI_SERVICE_URL` must be reachable from inside the container: on Docker Desktop, use `http://host.docker.internal:8001` for AI services on the host computer, or the AI container's service name on a shared Docker network. `localhost` inside the backend container refers to that container. Configure Supabase authentication as described in [supabase-auth.md](../api/supabase-auth.md).
 
 The app listens on port 8000. No development reload process is used. The command above publishes to the host's loopback address only; your existing Cloudflare tunnel can forward that port. Deploy behind your hosting platform's HTTPS ingress when hosting remotely.
 

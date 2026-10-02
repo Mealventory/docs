@@ -1,10 +1,10 @@
 # Recipes from expiring household food
 
-Open **Recipes → Find recipes for my pantry**, or use **Use expiring food** on the pantry screen.
+Open **Recipes → Find recipes for my pantry**.
 
 The backend reads the selected household's active inventory. Items dated today through three days from today are prioritized. Past-date items and zero-quantity or inactive items are excluded. Undated items and later-dated items can support recipes. Duplicate ingredient names use the earliest eligible expiry date. Dates follow the backend server's calendar date; these suggestions do not establish food safety.
 
-Suggestions show priority ingredients, steps, preparation/cooking time, and extras to check. Extras are not assumed to be in stock. Generating or opening a recipe does not change inventory. Recipes are session-only; regenerate after inventory changes. There is no automatic expiry prediction in this feature.
+Suggestions show priority ingredients, steps, preparation/cooking time, and extras to check. Extras are not assumed to be in stock. Generating or opening a recipe does not change inventory. Generated suggestions can be saved to the household collection; regenerate suggestions after inventory changes. Saved recipe persistence requires `backend/scripts/add_household_saved_recipes.sql` on databases that do not yet have that table. There is no automatic expiry prediction in this feature.
 
 ## Configuration
 
