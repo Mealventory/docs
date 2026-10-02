@@ -29,7 +29,7 @@ Manual entry has a zone selector, initially pantry. Both sample scan review flow
 
 Scan suggestions use category defaults: dairy/meat/seafood → fridge, frozen/frozen foods → freezer, spices → spicerack, unknown/other → pantry. Users can override the suggestion before saving. Save failures remain visible rather than navigating away as if successful.
 
-The existing scan UI uses sample data. This change does not connect live camera recognition or migrate the separate legacy per-user scan persistence API.
+Live scanning is documented in the [scanner guide](scanner-recognition.md). The separate legacy per-user scan persistence API is not the household review flow.
 
 ## Verification
 

@@ -1,3 +1,5 @@
+> Historical planning or implementation notes. These are not current setup instructions or an active task list. See the [documentation index](../README.md) and GitHub issues for current work.
+
 # TODO AI SERVICE INTEGRATION
 
 This file tracks what must be completed before connecting backend to the ai-services repo in production-like flows.

@@ -8,9 +8,9 @@ Send Authorization: Bearer <Supabase access_token> to protected routes. Inventor
 
 GET /api/v1/users/me returns verified identity without querying the legacy users table. POST /api/v1/users/register remains an optional legacy profile sync, needed by old per-user inventory foreign keys; it is not a Supabase signup endpoint. Sign up/sign in using Supabase Auth. The new #29 schema has no public.users table, so this legacy sync endpoint is only usable with the old schema. Profile email may be null for phone-based identities.
 
-This issue does not convert inventory/scan/recipe storage to the new UUID household schema (#44). Their existing services still scope by user ID after the household guard. Do not claim shared-household inventory or deploy the old ORM against the new schema until that conversion is complete. Database credentials with BYPASSRLS still bypass #41 policies: this code checks membership explicitly and does not SET ROLE or impersonate a Supabase database session.
+Current household inventory uses `/api/v1/items`; see [shared inventory](../features/shared-inventory.md). Create/join and membership management are provided by [household routes](../features/household-management.md). Legacy per-user routes are separate compatibility surfaces.
 
-Apply the #29 schema in an isolated/staging database before testing household membership. Provision membership through trusted code; no self-enrolment endpoint is added here (#43). No real .env, credentials or production database are changed. Firebase startup, verifier and direct package dependency have been removed. Other Google packages remain for existing integrations.
+Database credentials with BYPASSRLS bypass policies: the backend checks membership explicitly and does not impersonate a Supabase database session. Firebase authentication has been retired. Apply the initial schema only to an empty development database; coordinate additive migrations for existing databases.
 
 Contract changes: all data endpoints now require a bearer token; household routes require the header; auth errors use RFC 7807; /users/me no longer needs registration; sample persistence cannot choose another user's ID. Existing paths and success inventory shapes remain. The docs/openapi.json and contract snapshot record these deliberate changes.
 

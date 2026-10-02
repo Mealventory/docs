@@ -11,7 +11,7 @@ In Authentication → URL Configuration, allow the exact recovery redirect for e
 
 Keep the recovery email template's confirmation link so Supabase verifies the link before redirecting. Never put service-role keys in the frontend. This change does not modify dashboard settings or send test emails.
 
-The app receives a recovery session and asks for a new password before returning to households. Authentication sessions are persisted securely across app restarts using Expo SecureStore on native platforms (and localStorage on web), preventing login screen flicker through splash screen coordination. The pantry uses shared database inventory; see [shared inventory testing](shared-inventory.md).
+The app receives a recovery session and asks for a new password before returning to households. Authentication sessions are persisted securely across app restarts using Expo SecureStore on native platforms (and localStorage on web), preventing login screen flicker through splash screen coordination. The pantry uses shared database inventory; see [shared inventory testing](../features/shared-inventory.md).
 
 ## Manual checks with a test account
 

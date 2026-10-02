@@ -8,30 +8,30 @@ Use this guide for local development with the existing configured repositories. 
 - Python 3.11.9, Node/npm, and cloudflared must be installed. Use a compatible Expo Go installation or the team's development build.
 - Keep backend/.env, ai-services/.env and frontend/.env.local configured; do not overwrite them each time.
 - Backend DATABASE_URL must point to the intended Supabase PostgreSQL database with the application schema installed. AI_SERVICE_URL should be http://127.0.0.1:8001 when both services run on the same computer.
-- Backend Supabase authentication settings must match the frontend's Supabase project. HS256 requires the JWT secret; asymmetric signing uses the configured algorithm and project URL. See [authentication setup](supabase-auth.md).
+- Backend Supabase authentication settings must match the frontend's Supabase project. HS256 requires the JWT secret; asymmetric signing uses the configured algorithm and project URL. See [authentication setup](../api/supabase-auth.md).
 - Real OCR requires valid Google credentials, enabled Vision API and active project billing. Use the existing approved credentials file; do not create a new key for each launch.
-- The frontend example contains an old temporary tunnel address. Always use the URL printed by your current backend tunnel.
+- Always use the URL printed by your current backend tunnel; do not copy an old temporary address from another developer’s environment.
 
 ## Mac: everyday startup
 
-These paths match Daniel's Mac. Teammates should substitute their own repository paths.
+These examples assume the repositories are under `~/Documents/Mealventory`. Substitute your own checkout location.
 
 ### Terminal 1 — AI service
 
 ```sh
-cd /Users/danielbajenov/Documents/Mealventory/ai-services
+cd ~/Documents/Mealventory/ai-services
 source .venv/bin/activate
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8001
 ```
 
 Wait for `Application startup complete`. Model loading may take time. Check http://127.0.0.1:8001/docs.
 
-AI is needed for backend scan requests, but is not required for sign-in, households, or manual inventory actions. The current frontend scan review still uses sample data.
+AI is needed for backend scan requests, but is not required for sign-in, households, or manual inventory actions. Live scanning sends captured or selected images for review before saving confirmed items.
 
 ### Terminal 2 — backend
 
 ```sh
-cd /Users/danielbajenov/Documents/Mealventory/backend
+cd ~/Documents/Mealventory/backend
 source .venv311/bin/activate
 python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
@@ -59,11 +59,11 @@ A quick tunnel address is temporary. Starting another tunnel produces a new addr
 ### Terminal 4 — Expo
 
 ```sh
-cd /Users/danielbajenov/Documents/Mealventory/frontend
-npm run start:tunnel -- --clear
+cd ~/Documents/Mealventory/frontend
+npx expo start --dev-client --tunnel --clear
 ```
 
-Scan the QR code with the phone to open the app. For browser testing, press `w` in the Expo terminal and use the address it prints.
+Open the installed Mealventory development build using the QR code. If testing with a compatible Expo Go version instead, use `npx expo start --go --tunnel --clear`. Push-notification testing requires the development build. For browser testing, press `w` in the Expo terminal and use the address it prints.
 
 The Expo tunnel serves the app; the Cloudflare tunnel serves the backend. Both must remain running for this setup. They are different URLs.
 
@@ -95,7 +95,7 @@ Update frontend/.env.local with the printed backend tunnel URL, then start Termi
 
 ```powershell
 cd C:\Mealventory\frontend
-npm run start:tunnel -- --clear
+npx expo start --dev-client --tunnel --clear
 ```
 
 If the existing backend environment is named `.venv` instead, substitute that folder for `.venv311`.
@@ -134,7 +134,7 @@ py -3.11 -m venv .venv311
 npm ci
 ```
 
-Only create missing .env files from the examples, then fill in the team's configuration securely. For a new database, follow [initial schema setup](initial-schema.md); do not initialize or reset the shared database as a routine startup step.
+Only create missing .env files from the examples, then fill in the team's configuration securely. For a new database, follow [initial schema setup](../database/initial-schema.md); do not initialize or reset the shared database as a routine startup step.
 
 ## Testing with teammates
 
@@ -151,9 +151,15 @@ To test inventory status, sign in on two phones in the same household. Mark an i
 - **Sign-in works but households fail:** check backend `/api/v1/health`, database connection and matching Supabase authentication settings. Supabase login alone does not prove backend connectivity.
 - **Port already in use:** stop the previous service with Ctrl+C in its terminal before restarting. If changing the backend port, also change the tunnel target.
 - **cloudflared command not found:** install Cloudflare's cloudflared client and reopen the terminal.
-- **Browser-only request failure:** check [CORS configuration](cors-origins-74.md) against the actual Expo web origin.
+- **Browser-only request failure:** check [CORS configuration](../operations/cors-origins-74.md) against the actual Expo web origin.
 - **Expired password-recovery link:** request a new email and verify the Supabase redirect matches the current app URL. Restarting the backend tunnel does not fix an Expo recovery redirect.
 
 ## Stop the project
 
 Press Ctrl+C in each of the four terminals. No database reset is needed. On the next launch, use the new backend tunnel address if the quick tunnel was stopped.
+
+## Same-network alternative
+
+On a reachable shared Wi-Fi network, set `EXPO_PUBLIC_BACKEND_URL=http://<computer-LAN-IP>:8000` and run `npx expo start --dev-client --lan`. A physical phone’s `localhost` points to the phone, not your computer. Allow the backend port through the host firewall on the trusted development network. Expo’s tunnel only carries the app bundle; it does not tunnel backend traffic.
+
+For the macOS iOS Simulator, install and configure Xcode and its simulator runtime, then start Expo and press `i`. Use a simulator-compatible build. A simulator on the backend Mac can reach `http://127.0.0.1:8000`.

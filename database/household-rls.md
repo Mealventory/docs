@@ -8,7 +8,7 @@ Authenticated members can read their household and membership roster; update the
 
 Household creation/deletion, invites, membership changes and role changes require trusted server operations that validate the caller. There is intentionally no client self-enrolment or role escalation policy. Implementing that workflow is separate work. The server must create a household and its first owner membership transactionally.
 
-Database owners, superusers and service roles with BYPASSRLS bypass policies by design. Existing backend Firebase auth and direct privileged DATABASE_URL connections do not automatically acquire Supabase user identity. This migration protects Supabase authenticated-role access; it does not replace backend authorization or migrate backend models. Never expose service-role credentials to clients.
+Database owners, superusers and service roles with BYPASSRLS bypass policies by design. Direct privileged DATABASE_URL connections do not automatically acquire Supabase user identity; the backend verifies Supabase JWTs and checks household membership in application code. This migration protects Supabase authenticated-role access; it does not replace backend authorization or migrate backend models. Never expose service-role credentials to clients.
 
 Validation: `RUN_POSTGRES_TESTS=1 python -m pytest tests/ -q`. Docker PostgreSQL 16 tests emulate only Supabase roles and auth.uid() from transaction-local JWT settings, then SET ROLE authenticated. No .env or live DATABASE_URL is used. A staging Supabase rollout still needs real JWT/API verification.
 
