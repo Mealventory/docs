@@ -24,7 +24,11 @@ source .venv/bin/activate
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8001
 ```
 
-Wait for `Application startup complete`. Model loading may take time. Check http://127.0.0.1:8001/docs.
+Wait for `Application startup complete`. Model loading may take time. Check
+`http://127.0.0.1:8001/` for process liveness and
+`http://127.0.0.1:8001/ready` for scan readiness. Use `/` for deployment
+liveness probes and `/ready` for readiness probes; see the [AI readiness
+guide](../operations/ai-readiness-17.md).
 
 AI is needed for backend scan requests, but is not required for sign-in, households, or manual inventory actions. Live scanning sends captured or selected images for review before saving confirmed items.
 
