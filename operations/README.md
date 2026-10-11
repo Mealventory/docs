@@ -6,3 +6,4 @@
 - [Backend Docker runtime and health probes (#48)](backend-docker-48.md)
 - [Browser origin configuration (#74)](cors-origins-74.md)
 - [Demo database seeding (#60)](demo-seeder-60.md)
+- [Rate limiting for join and scan (#88)](rate-limiting-88.md)

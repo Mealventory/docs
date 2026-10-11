@@ -21,7 +21,7 @@ PostgreSQL household row locks serialize joins, role changes and removals before
 
 This is trusted server code: DATABASE_URL must have permission to create households and manage membership, including bypassing the #41 client RLS policies. Client authenticated roles remain unable to write memberships directly. Keep these database credentials server-only. The service obtains the caller UUID solely from the verified token, never from the request body.
 
-Invites are reusable household credentials, visible to members, with no expiry/rotation in this issue. A removed user who still has a valid code can join again. Add gateway rate limiting to the join endpoint before public deployment; distributed rate limiting and invite rotation are separate work. These endpoints do not migrate legacy inventory storage (#44) or create Supabase Auth users.
+Invites are reusable household credentials, visible to members, with no expiry/rotation in this issue. A removed user who still has a valid code can join again. Join attempts are rate limited per authenticated user in this backend process (#88). Distributed rate limiting and invite rotation are separate work. These endpoints do not migrate legacy inventory storage (#44) or create Supabase Auth users.
 
 Validation: python -m pytest tests/ -q. Add RUN_POSTGRES_TESTS=1 for real PostgreSQL schema/concurrency checks. The household integration tests launch postgres:16 with a random password and an ephemeral loopback-only port, load init_db.sql, and remove the container afterward. They never use the configured DATABASE_URL.
 
