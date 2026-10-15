@@ -8,7 +8,7 @@ root = Path(__file__).resolve().parents[1]
 errors = []
 files = sorted(root.rglob('*.md'))
 for path in files:
-    content = path.read_text()
+    content = path.read_text(encoding='utf-8')
     if re.search(r'^(?:<{7}|={7}|>{7})(?: |$)', content, re.M):
         errors.append(f'{path.relative_to(root)}: unresolved merge marker')
     # Current docs use inline Markdown links; remote URLs are not fetched.
@@ -20,7 +20,7 @@ for path in files:
         destination = path.parent / unquote(parts.path)
         if not destination.exists():
             errors.append(f'{path.relative_to(root)}: missing target {target}')
-with (root / 'openapi.json').open() as stream:
+with (root / 'openapi.json').open(encoding='utf-8') as stream:
     schema = json.load(stream)
 if not schema.get('openapi') or not isinstance(schema.get('paths'), dict):
     errors.append('openapi.json: expected an OpenAPI document with paths')
