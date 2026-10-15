@@ -38,6 +38,7 @@ The AI service does **not** currently use Gemini or ingest FoodKeeper data. The 
 | [Database](database/README.md) | Initial schema and row-level security |
 | [Operations](operations/README.md) | Containers, CORS, demo data, health probes and AI failures |
 | [Architecture](architecture/README.md) | Authentication session persistence |
+| [Technical Decisions](technical-decision-records/README.md) | Architecture Decision Records (TDRs/ADRs) for multi-repo, RLS, MMKV, Vision, and Push |
 | [Archive](archive/README.md) | Historical proposals and superseded task lists |
 
 ## Maintaining these docs
