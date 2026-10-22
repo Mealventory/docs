@@ -8,6 +8,7 @@
 - [Backend Docker runtime and health probes (#48)](backend-docker-48.md)
 - [Browser origin configuration (#74)](cors-origins-74.md)
 - [Capstone live demo script and evaluation runbook (#6)](capstone_demo_runbook.md)
+- [Cross-Repo QA regression matrix and release checklist (#19)](qa_regression_matrix.md)
 - [Demo database seeding (#60)](demo-seeder-60.md)
 - [Multi-repo local development setup (#1)](local_development_setup.md)
 - [Rate limiting for join and scan (#88)](rate-limiting-88.md)
