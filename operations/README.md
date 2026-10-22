@@ -7,6 +7,7 @@
 - [App Store & Google Play deployment guide (#1)](app_store_deployment_guide.md)
 - [Backend Docker runtime and health probes (#48)](backend-docker-48.md)
 - [Browser origin configuration (#74)](cors-origins-74.md)
+- [Capstone live demo script and evaluation runbook (#6)](capstone_demo_runbook.md)
 - [Demo database seeding (#60)](demo-seeder-60.md)
 - [Multi-repo local development setup (#1)](local_development_setup.md)
 - [Rate limiting for join and scan (#88)](rate-limiting-88.md)
